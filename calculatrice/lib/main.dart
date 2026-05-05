@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Calculatrice',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
       ),
       home: const CalculatriceScreen(),
     );
@@ -78,8 +78,10 @@ class _CalculatriceScreenState extends State<CalculatriceScreen> {
         child: ElevatedButton(
           onPressed: onTap ?? () => _append(label),
           style: ElevatedButton.styleFrom(
-            backgroundColor: color ?? Colors.grey[800],
-            foregroundColor: Colors.white,
+            backgroundColor: color ?? Colors.blue[800],
+            foregroundColor: color == Colors.white
+                ? Colors.black
+                : Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 20),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
@@ -133,9 +135,9 @@ class _CalculatriceScreenState extends State<CalculatriceScreen> {
                 Row(
                   children: [
                     _buildButton('C', color: Colors.red, onTap: _clear),
-                    _buildButton('/', color: Colors.orange),
-                    _buildButton('*', color: Colors.orange),
-                    _buildButton('-', color: Colors.orange),
+                    _buildButton('/', color: Colors.white),
+                    _buildButton('*', color: Colors.white),
+                    _buildButton('-', color: Colors.white),
                   ],
                 ),
                 Row(
@@ -143,7 +145,7 @@ class _CalculatriceScreenState extends State<CalculatriceScreen> {
                     _buildButton('7'),
                     _buildButton('8'),
                     _buildButton('9'),
-                    _buildButton('+', color: Colors.orange),
+                    _buildButton('+', color: Colors.white),
                   ],
                 ),
                 Row(
@@ -151,7 +153,7 @@ class _CalculatriceScreenState extends State<CalculatriceScreen> {
                     _buildButton('4'),
                     _buildButton('5'),
                     _buildButton('6'),
-                    _buildButton('=', color: Colors.orange, onTap: _calculate),
+                    _buildButton('=', color: Colors.white, onTap: _calculate),
                   ],
                 ),
                 Row(
